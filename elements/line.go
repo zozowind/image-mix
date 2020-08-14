@@ -27,5 +27,6 @@ func (e *Line) Draw(g *gg.Context) (err error) {
 	}
 	g.SetLineWidth(e.W)
 	g.DrawLine(e.SX, e.SY, e.EX, e.EY)
+	g.Stroke()
 	return
 }

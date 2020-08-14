@@ -1,9 +1,10 @@
-package poster
+package examples
 
 import (
 	"testing"
 
 	"github.com/zozowind/image-mix/elements"
+	"github.com/zozowind/image-mix/poster"
 )
 
 func TestPoster(t *testing.T) {
@@ -22,7 +23,7 @@ func TestPoster(t *testing.T) {
 		EX:    float64(150),
 		EY:    float64(150),
 		W:     float64(50),
-		Color: "#ffffff",
+		Color: "#ff0000",
 		Alpha: 1,
 	}
 
@@ -48,7 +49,7 @@ func TestPoster(t *testing.T) {
 		TextAlign:  elements.TextAlignCenter,
 	}
 
-	poster := Poster{
+	poster := poster.Poster{
 		W:          300,
 		H:          200,
 		Background: "#003333",
