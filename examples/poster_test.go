@@ -58,7 +58,7 @@ func TestPoster(t *testing.T) {
 		H:          200,
 		Background: "#003333",
 		Alpha:      0.5,
-		Elements:   poster.ElementsSlice{line, rect, img, text},
+		Elements:   poster.ElementSlice{line, rect, img, text},
 	}
 	err := poster.DrawToFile("./test.png")
 	if nil != err {
