@@ -25,12 +25,12 @@ func (s ElementSlice) Less(i, j int) bool {
 
 //Poster 海报或混合图片
 type Poster struct {
-	W          int     `json:"w"`
-	H          int     `json:"h"`
-	Background string  `json:"background"` //背景颜色
-	Alpha      float64 `json:"alpha"`
-	Elements   ElementSlice
-	Context    *gg.Context
+	W          int          `json:"w"`
+	H          int          `json:"h"`
+	Background string       `json:"background"` //背景颜色
+	Alpha      float64      `json:"alpha"`
+	Elements   ElementSlice `json:"-"`
+	Context    *gg.Context  `json:"-"`
 }
 
 //Draw 绘制海报
