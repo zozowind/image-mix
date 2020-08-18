@@ -13,6 +13,7 @@ func TestPoster(t *testing.T) {
 		Y:          float64(10),
 		W:          float64(30),
 		H:          float64(40),
+		Z:          float64(1),
 		Background: "#ababab",
 		Border:     "#00FF00",
 	}
@@ -23,6 +24,7 @@ func TestPoster(t *testing.T) {
 		EX:    float64(150),
 		EY:    float64(150),
 		W:     float64(50),
+		Z:     float64(2),
 		Color: "#ff0000",
 		Alpha: 1,
 	}
@@ -33,12 +35,14 @@ func TestPoster(t *testing.T) {
 		W:            float64(80),
 		H:            float64(80),
 		Path:         "https://png.zhaoxi.net/upload/18/01/1400/63d99185de9844fc44d9e8ab9ebaa408.png",
+		Z:            float64(3),
 		BorderRadius: 80,
 	}
 
 	text := &elements.Text{
 		X:          float64(120),
 		Y:          float64(50),
+		Z:          float64(2.5),
 		W:          float64(80),
 		Text:       "我是一只小花猫，喵喵喵 abc134",
 		Font:       "../font/pingfangsr.ttf",
@@ -54,7 +58,7 @@ func TestPoster(t *testing.T) {
 		H:          200,
 		Background: "#003333",
 		Alpha:      0.5,
-		Elements:   []elements.Element{line, rect, img, text},
+		Elements:   poster.ElementsSlice{line, rect, img, text},
 	}
 	err := poster.DrawToFile("./test.png")
 	if nil != err {

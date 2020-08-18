@@ -3,11 +3,25 @@ package poster
 import (
 	"fmt"
 	"image"
+	"sort"
 
 	"github.com/fogleman/gg"
 	"github.com/zozowind/image-mix/elements"
 	"github.com/zozowind/image-mix/util"
 )
+
+//ElementsSlice 元素组
+type ElementsSlice []elements.Element
+
+func (s ElementsSlice) Len() int {
+	return len(s)
+}
+func (s ElementsSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+func (s ElementsSlice) Less(i, j int) bool {
+	return s[i].Index() < s[j].Index()
+}
 
 //Poster 海报或混合图片
 type Poster struct {
@@ -15,7 +29,7 @@ type Poster struct {
 	H          int     `json:"h"`
 	Background string  `json:"background"` //背景颜色
 	Alpha      float64 `json:"alpha"`
-	Elements   []elements.Element
+	Elements   ElementsSlice
 	Context    *gg.Context
 }
 
@@ -35,6 +49,8 @@ func (p *Poster) Draw() (err error) {
 
 	p.Context.Fill()
 
+	//排序
+	sort.Sort(p.Elements)
 	for _, ele := range p.Elements {
 		err = ele.Draw(p.Context)
 		if nil != err {

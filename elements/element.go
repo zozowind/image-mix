@@ -7,4 +7,5 @@ import (
 //Element 元素
 type Element interface {
 	Draw(*gg.Context) error
+	Index() float64
 }

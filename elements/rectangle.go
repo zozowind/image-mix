@@ -11,11 +11,17 @@ import (
 type Rectangle struct {
 	X          float64 `json:"x"`
 	Y          float64 `json:"y"`
+	Z          float64 `json:"z"`
 	W          float64 `json:"w"`
 	H          float64 `json:"h"`
 	Background string  `json:"background"`
 	Alpha      float64 `json:"alpha"`
 	Border     string  `json:"border"`
+}
+
+//Index 顺序
+func (e *Rectangle) Index() float64 {
+	return e.Z
 }
 
 //Draw 画

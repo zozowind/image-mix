@@ -13,9 +13,15 @@ type Line struct {
 	SY    float64 `json:"sy"`
 	EX    float64 `json:"ex"`
 	EY    float64 `json:"ey"`
+	Z     float64 `json:"z"`
 	W     float64 `json:"w"`
 	Color string  `json:"color"`
 	Alpha float64 `json:"alpha"`
+}
+
+//Index 顺序
+func (e *Line) Index() float64 {
+	return e.Z
 }
 
 //Draw 绘制

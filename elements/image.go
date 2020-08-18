@@ -15,6 +15,7 @@ import (
 type Image struct {
 	X            float64 `json:"x"`
 	Y            float64 `json:"y"`
+	Z            float64 `json:"z"` //顺序
 	W            float64 `json:"w"`
 	H            float64 `json:"h"`
 	Path         string  `json:"path"`
@@ -28,6 +29,11 @@ type Image struct {
 // func (img Image) Ay() float64 {
 // 	return float64(img.Y) - float64(img.Height)*0.5
 // }
+
+//Index 顺序
+func (e *Image) Index() float64 {
+	return e.Z
+}
 
 //Draw 绘制
 func (e *Image) Draw(g *gg.Context) (err error) {

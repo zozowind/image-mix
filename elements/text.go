@@ -14,6 +14,7 @@ const TextAlignCenter = "center"
 type Text struct {
 	X          float64 `json:"x"`
 	Y          float64 `json:"y"`
+	Z          float64 `json:"z"`
 	Text       string  `json:"text"`
 	W          float64 `json:"w"`
 	Font       string  `json:"font"`
@@ -22,6 +23,11 @@ type Text struct {
 	Alpha      float64 `json:"alpha"`
 	LineHeight int     `json:"lineHeight"`
 	TextAlign  string  `json:"textAlign"`
+}
+
+//Index 顺序
+func (e *Text) Index() float64 {
+	return e.Z
 }
 
 //ModifyX 修改x
