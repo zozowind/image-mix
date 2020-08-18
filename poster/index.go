@@ -10,16 +10,16 @@ import (
 	"github.com/zozowind/image-mix/util"
 )
 
-//ElementsSlice 元素组
-type ElementsSlice []elements.Element
+//ElementSlice 元素组
+type ElementSlice []elements.Element
 
-func (s ElementsSlice) Len() int {
+func (s ElementSlice) Len() int {
 	return len(s)
 }
-func (s ElementsSlice) Swap(i, j int) {
+func (s ElementSlice) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
-func (s ElementsSlice) Less(i, j int) bool {
+func (s ElementSlice) Less(i, j int) bool {
 	return s[i].Index() < s[j].Index()
 }
 
@@ -29,7 +29,7 @@ type Poster struct {
 	H          int     `json:"h"`
 	Background string  `json:"background"` //背景颜色
 	Alpha      float64 `json:"alpha"`
-	Elements   ElementsSlice
+	Elements   ElementSlice
 	Context    *gg.Context
 }
 
